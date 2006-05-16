@@ -36,18 +36,18 @@ public final class Iterators
    private static final class Enum2Iterator
       implements Iterator
    {
-      private final Enumeration enum;
+      private final Enumeration enumObj;
     
-      public Enum2Iterator(final Enumeration enum) {
-         this.enum = enum;
+      public Enum2Iterator(final Enumeration enumObj) {
+         this.enumObj = enumObj;
       }
    
       public boolean hasNext() {
-         return enum.hasMoreElements();
+         return enumObj.hasMoreElements();
       }
     
       public Object next() {
-         return enum.nextElement();
+         return enumObj.nextElement();
       }
       
       public void remove() {
@@ -58,11 +58,11 @@ public final class Iterators
    /**
     * Return an Iterator wrapper for the given Enumeration
     *
-    * @param enum    Enumeration to wrap
+    * @param enumObj    Enumeration to wrap
     * @return        Enumeration wrapped as an Iterator
     */
-   public static Iterator forEnumeration(final Enumeration enum) {
-      return new Enum2Iterator(enum);
+   public static Iterator forEnumeration(final Enumeration enumObj) {
+      return new Enum2Iterator(enumObj);
    }
 
    /**
@@ -178,29 +178,29 @@ public final class Iterators
    private static final class SyncEnumeration
       implements Enumeration
    {
-      private final Enumeration enum;
+      private final Enumeration enumObj;
 
-      public SyncEnumeration(final Enumeration enum) {
-         this.enum = enum;
+      public SyncEnumeration(final Enumeration enumObj) {
+         this.enumObj = enumObj;
       }
 
       public synchronized boolean hasMoreElements() {
-         return enum.hasMoreElements();
+         return enumObj.hasMoreElements();
       }
 
       public synchronized Object nextElement() {
-         return enum.nextElement();
+         return enumObj.nextElement();
       }
    }
 
    /**
     * Returns a synchronized version of the given Enumeration.
     *
-    * @param enum    Enumeration to synchronize.
+    * @param enumObj    Enumeration to synchronize.
     * @return        Synchronized Enumeration.
     */
-   public static Enumeration makeSynchronized(final Enumeration enum) {
-      return new SyncEnumeration(enum);
+   public static Enumeration makeSynchronized(final Enumeration enumObj) {
+      return new SyncEnumeration(enumObj);
    }
 
 

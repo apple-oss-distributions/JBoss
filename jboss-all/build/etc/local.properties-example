@@ -20,6 +20,7 @@
 javac.debug=on
 javac.debuglevel=source,lines
 javac.target=1.4
+javac.source=1.4
 javac.deprecation=off
 
 ### Enable verbose build output ###

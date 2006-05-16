@@ -37,6 +37,7 @@ import javax.management.QueryExp;
 import javax.management.ReflectionException;
 import javax.management.OperationsException;
 import javax.management.j2ee.ManagementHome;
+import javax.management.loading.ClassLoaderRepository;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -938,6 +939,33 @@ public class ManagementBean
       {
          mServer.unregisterMBean(pName);
       }
+
+      // Adding to try to build with J2SE5.0 -rrk
+
+      public ClassLoaderRepository getClassLoaderRepository() {
+          return mServer.getClassLoaderRepository();
+      }
+
+      public ClassLoader getClassLoader(ObjectName oName) throws javax.management.InstanceNotFoundException {
+          return mServer.getClassLoader(oName);
+      }
+
+      public ClassLoader getClassLoaderFor(ObjectName oName) throws javax.management.InstanceNotFoundException {
+          return mServer.getClassLoaderFor(oName);
+      }
+
+      public void removeNotificationListener(ObjectName oName, NotificationListener listener, NotificationFilter filter, Object obj) throws javax.management.InstanceNotFoundException, javax.management.ListenerNotFoundException {
+          mServer.removeNotificationListener(oName, listener, filter, obj);
+      }
+
+      public void removeNotificationListener(ObjectName oName, ObjectName oName2, NotificationFilter filter, Object obj) throws javax.management.InstanceNotFoundException, javax.management.ListenerNotFoundException {
+          mServer.removeNotificationListener(oName, oName2, filter, obj);
+      }
+
+      public String[] getDomains() {
+          return mServer.getDomains();
+      }
+      // done with methods added for J2SE5.0 -rrk
 
       public ObjectInstance getObjectInstance(
             ObjectName pName

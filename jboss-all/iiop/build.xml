@@ -177,6 +177,7 @@
     <javac destdir="${build.classes}/main"
            optimize="${javac.optimize}"
            target="${javac.target}"
+	   source="1.4"
            debug="${javac.debug}"
            depend="${javac.depend}"
            verbose="${javac.verbose}"

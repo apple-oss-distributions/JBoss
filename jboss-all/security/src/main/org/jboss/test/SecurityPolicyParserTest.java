@@ -47,7 +47,7 @@ public class SecurityPolicyParserTest extends junit.framework.TestCase
     {
         Subject subject = new Subject();
         subject.getPrincipals().add(new SimplePrincipal("starksm"));
-        CodeSource cs = new CodeSource(null, null);
+        CodeSource cs = new CodeSource(null, (java.security.CodeSigner[])null);
         Policy policy = Policy.getPolicy();
         SecurityPolicy.setActiveApp("test-domain");
         PermissionCollection perms = policy.getPermissions(subject, cs);
@@ -63,7 +63,7 @@ public class SecurityPolicyParserTest extends junit.framework.TestCase
         Subject subject = lc.getSubject();
         System.out.println("Subject="+subject);
         SecurityPolicy.setActiveApp("test-domain");
-        CodeSource cs = new CodeSource(null, null);
+        CodeSource cs = new CodeSource(null, (java.security.CodeSigner[])null);
         ProtectionDomain pd = getClass().getProtectionDomain();
         cs = pd.getCodeSource();
         Subject.doAsPrivileged(subject, new PrivilegedAction()

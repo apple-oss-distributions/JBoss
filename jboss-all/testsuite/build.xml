@@ -4053,7 +4053,7 @@ marathon.threadcount:       ${marathon.threadcount}
     </copy>
 
     <javac destdir="${build.classes}" optimize="${javac.optimize}"
-      target="${javac.target}" debug="${javac.debug}" >
+       target="${javac.target}" debug="${javac.debug}" >
        <src path="${build.gen-src}"/>
        <src path="${source.java}"/>
        <classpath refid="tests.classpath"/>
