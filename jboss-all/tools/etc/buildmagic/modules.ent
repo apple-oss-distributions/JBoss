@@ -1,11 +1,13 @@
 <!-- $Id: modules.ent,v 1.1.2.11 2003/10/06 02:36:28 starksm Exp $ -->
 
   <!-- Cluster -->
+	<!-- FIXME: jbossha-httpsession.jar hack to get to build with Gufu -dlee 7.6.07 -->
   <property name="jboss.cluster.root" value="${project.root}/cluster/output"/>
   <property name="jboss.cluster.lib" value="${jboss.cluster.root}/lib"/>
   <path id="jboss.cluster.classpath">
     <pathelement path="${jboss.cluster.lib}/jbossha.jar"/>
     <pathelement path="${jboss.cluster.lib}/jbossha-httpsession.sar"/>
+    <pathelement path="${jboss.cluster.lib}/jbossha-httpsession.jar"/>
     <pathelement path="${jboss.cluster.lib}/jbossha-singleton.jar"/>
   </path>
 
@@ -23,10 +25,12 @@
   </path>
 
   <!-- JCA -->
+<!-- FIXME: jboss-jca.jar hack to get to build with Gufu -dlee 7.6.07 -->
   <property name="jboss.jca.root" value="${project.root}/connector/output"/>
   <property name="jboss.jca.lib" value="${jboss.jca.root}/lib"/>
   <path id="jboss.jca.classpath">
     <pathelement path="${jboss.jca.lib}/jboss-jca.sar"/>
+	<pathelement path="${jboss.jca.lib}/jboss-jca.jar"/>
     <pathelement path="${jboss.jca.lib}/jboss-local-jdbc.jar"/>
     <pathelement path="${jboss.jca.lib}/jboss-common-jdbc-wrapper.jar"/>
   </path>

@@ -1,4 +1,4 @@
-TOMCAT=jakarta-tomcat-LE-jdk14
+TOMCAT=apache-tomcat-4.1.36
 TARGETDIR:=$(DSTROOT)/Library/JBoss/3.2
 LOGDIR:=$(DSTROOT)/Library/Logs/JBoss
 JBOSS_ROOT:=$(SYMROOT)/jboss-all
@@ -56,7 +56,9 @@ install:
 	cp $(SRCROOT)/JBoss.plist $(DSTROOT)/usr/local/OpenSourceVersions/.
 	mkdir $(DSTROOT)/usr/local/OpenSourceLicenses
 	cp $(SRCROOT)/JBoss.txt $(DSTROOT)/usr/local/OpenSourceLicenses/. 
-
+	cp $(SRCROOT)/Tomcat.plist $(DSTROOT)/usr/local/OpenSourceVersions/.
+	cp $(SRCROOT)/Tomcat.txt $(DSTROOT)/usr/local/OpenSourceLicenses/. 
+	
 magnum: install
 	cd $(TARGETDIR)/server; ln -s deploy-standalone default
 
@@ -66,7 +68,7 @@ devtools: install
 installhdrs: 
 
 installsrc:
-	gnutar cf - bin deploy lib server tomcat Makefile JBoss.txt JBoss.plist | (cd $(SRCROOT); gnutar xf -)
+	gnutar cf - bin deploy lib server tomcat Makefile JBoss.txt JBoss.plist Tomcat.plist Tomcat.txt | (cd $(SRCROOT); gnutar xf -)
 	gnutar -xz -C $(SRCROOT) -f jb.tar.gz
 	gnutar -xz -C $(SRCROOT) -f $(TOMCAT).tar.gz
 	cp local.properties $(SRCROOT)/jboss-all/build/etc/local.properties-example

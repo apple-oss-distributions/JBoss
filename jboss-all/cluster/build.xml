@@ -323,6 +323,9 @@
       </fileset>
     </jar>
 
+    <!--FIXME: hack to compile on Gufu - dlee 7.6.07 -->
+    <copy file="${build.lib}/jbossha-httpsession.sar" tofile="${build.lib}/jbossha-httpsession.jar" />
+
     <!-- jbossmq-hail.sar -->
 
     <jar jarfile="${build.lib}/jbossmq-hail.jar"

@@ -333,6 +333,9 @@
       </fileset>
     </jar>
 
+	<!-- FIXME: hack to get to build with Gufu -dlee 7.6.07 -->
+	<copy file="${build.lib}/jboss-jca.sar" tofile="${build.lib}/jboss-jca.jar" />
+	
     <!-- Create the jar containing common classes for the JDBC wrapper resource adapters -->
     <jar jarfile="${build.lib}/jboss-common-jdbc-wrapper.jar"
          manifest="${build.etc}/default.mf">
